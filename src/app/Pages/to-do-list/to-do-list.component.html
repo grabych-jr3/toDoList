@@ -1,0 +1,26 @@
+<form [formGroup]="taskForm" (ngSubmit)="addTask(taskField.value)" class="tasksForm">
+    <input formControlName="taskValue" type="text" name="task" id="task" placeholder="Enter task" #taskField>
+    <button type="submit">Add task</button>
+</form>
+<div class="showTasks" *ngIf="tasksArray && tasksArray.length > 0; then tasks else noTasks"></div>
+<ng-template #tasks>
+    <div class="tasks" appClickedOutside (clickedOutside)="closeEditing()">
+        <div *ngFor="let task of tasksArray; let idx = index" class="task">
+            <input type="checkbox" #isDone (change)="changeStatus(task)" [checked]="task.isComplete">
+            <div class="rightSide">
+                <div class="taskText">
+                    <p [style.color]="isDone.checked ? 'red' : 'black'">{{task.value}}</p>
+                </div>
+                <div class="btnDiv" (click)="showMoreArray[idx] = !showMoreArray[idx]" >
+                    <span class="moreBtn"></span>
+                </div>
+
+                <app-editing-task [tasksArray]="tasksArray" [showMoreArray]="showMoreArray" [idx]="idx"></app-editing-task>
+
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #noTasks>
+    No tasks yet!
+</ng-template>

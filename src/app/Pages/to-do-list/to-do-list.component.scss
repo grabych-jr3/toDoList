@@ -1,0 +1,139 @@
+.tasksForm {
+    margin-bottom: 10px;
+    display: flex;
+    input {
+        width: 400px;
+        height: 40px;
+        padding: 5px;
+        font-size: 20px;
+        border: 2px solid #763add;
+        &:focus {
+            background-color: #dfdddd;
+        }
+    }
+    button {
+        height: 40px;
+        width: 80px;
+        background-color: #763add;
+        color: #fff;
+        font-size: 17px;
+    }
+}
+
+.tasks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+.task {
+    width: 480px;
+    height: 40px;
+    border: 2px solid #763add;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    position: relative;
+}
+.taskText {
+    font-size: 20px;
+}
+.rightSide {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.btnDiv {
+    padding: 5px;
+    &:hover {
+        cursor: pointer;
+    }
+}
+.moreBtn {
+    display: block;
+    width: 4px;
+    height: 4px;
+    background-color: #763add;
+    border-radius: 50%;
+    position: relative;
+    &::after,
+    &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background-color: #763add;
+    }
+    &::before {
+        top: -8px;
+    }
+    &::after {
+        top: 8px;
+    }
+}
+
+.editingTask {
+    position: absolute;
+    border: 2px solid #763add;
+    background-color: #763add;
+    color: #fff;
+    border-radius: 10px;
+    width: 300px;
+    right: -320px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    label {
+        font-size: 18px;
+    }
+
+    .renameField {
+        height: 40px;
+        padding: 5px;
+        font-size: 20px;
+        border: 2px solid #763add;
+        border-radius: 10px;
+        &:focus {
+            background-color: #dfdddd;
+        }
+    }
+
+    .deleteBtn {
+        width: 70px;
+        background-color: #fff;
+        color: #763add;
+        font-size: 17px;
+        border-radius: 5px;
+        padding: 10px;
+    }
+
+    .changesBtn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        .cancelBtn {
+            background-color: #f90000;
+            width: 100px;
+            color: #fff;
+            font-size: 17px;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .saveBtn{
+            background-color: #ffffff;
+            width: 100px;
+            color: #763add;
+            font-size: 17px;
+            border-radius: 5px;
+            padding: 10px;
+        }
+    }
+}
