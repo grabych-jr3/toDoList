@@ -30,4 +30,9 @@ export class EditingTaskComponent implements OnInit{
   saveEditing(newTaskText: string, index: number) {
     this.renameTask(newTaskText, index);
   }
+  clickedOut(event: Event){
+    if((event?.target as HTMLElement).className === "wrapper-editing") {
+      this.showMoreArray.fill(false)
+    }
+  }
 }

@@ -7,6 +7,7 @@
     <div class="tasks" appClickedOutside (clickedOutside)="closeEditing()">
         <div *ngFor="let task of tasksArray; let idx = index" class="task">
             <input type="checkbox" #isDone (change)="changeStatus(task)" [checked]="task.isComplete">
+
             <div class="rightSide">
                 <div class="taskText">
                     <p [style.color]="isDone.checked ? 'red' : 'black'">{{task.value}}</p>
@@ -14,10 +15,10 @@
                 <div class="btnDiv" (click)="showMoreArray[idx] = !showMoreArray[idx]" >
                     <span class="moreBtn"></span>
                 </div>
-
-                <app-editing-task [tasksArray]="tasksArray" [showMoreArray]="showMoreArray" [idx]="idx"></app-editing-task>
-
             </div>
+
+            <app-editing-task *ngIf="showMoreArray[idx]" [tasksArray]="tasksArray" [showMoreArray]="showMoreArray" [idx]="idx"></app-editing-task>
+
         </div>
     </div>
 </ng-template>

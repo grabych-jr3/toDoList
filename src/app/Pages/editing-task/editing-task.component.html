@@ -1,13 +1,17 @@
-<div class="editingTask" *ngIf="showMoreArray[idx]">
-    <label for="newTask">Rename:</label>
-    <input type="text" name="newTask" id="newTask" placeholder="Rename task:" class="renameField"
-        #newTask>
-    <button type="button" class="deleteBtn"
-        (click)="deleteTask(idx); showMoreArray[idx] = !showMoreArray[idx]">Delete</button>
-    <div class="changesBtn">
-        <button type="button" class="cancelBtn"
-            (click)="showMoreArray[idx] = !showMoreArray[idx]">Cancel</button>
-        <button type="button" class="Save" class="saveBtn"
-            (click)="saveEditing(newTask.value, idx); showMoreArray[idx] = !showMoreArray[idx]">Save</button>
+<div class="wrapper-editing" (click)="clickedOut($event)">
+    <div class="editingTask">
+        <label for="currentName">Current name:</label>
+        <input class="currentName editingInput" type="text" id="currentName" name="currentName" readonly [value]="tasksArray[idx].value">
+        <label for="newTask">Rename:</label>
+        <input type="text" name="newTask" id="newTask" placeholder="Rename task:" class="renameField editingInput"
+            #newTask>
+        <button type="button" class="deleteBtn"
+            (click)="deleteTask(idx); showMoreArray[idx] = !showMoreArray[idx]">Delete</button>
+        <div class="changesBtn">
+            <button type="button" class="cancelBtn"
+                (click)="showMoreArray[idx] = !showMoreArray[idx]">Cancel</button>
+            <button type="button" class="Save" class="saveBtn"
+                (click)="saveEditing(newTask.value, idx); showMoreArray[idx] = !showMoreArray[idx]">Save</button>
+        </div>
     </div>
 </div>

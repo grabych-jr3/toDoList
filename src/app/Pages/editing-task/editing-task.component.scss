@@ -1,12 +1,22 @@
+.wrapper-editing{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(194, 194, 194, .4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .editingTask {
-    position: absolute;
     border: 2px solid #763add;
     background-color: #763add;
     color: #fff;
     border-radius: 10px;
     width: 300px;
-    top: -80px;
-    right: -320px;
+    
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -14,13 +24,14 @@
     label {
         font-size: 18px;
     }
-
-    .renameField {
+    .editingInput {
         height: 40px;
         padding: 5px;
         font-size: 20px;
         border: 2px solid #763add;
         border-radius: 10px;
+    }
+    .renameField {
         &:focus {
             background-color: #dfdddd;
         }
