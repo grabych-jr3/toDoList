@@ -1,6 +1,6 @@
 <form [formGroup]="taskForm" (ngSubmit)="addTask(taskField.value)" class="tasksForm">
     <input formControlName="taskValue" type="text" name="task" id="task" placeholder="Enter task" #taskField>
-    <button type="submit">Add task</button>
+    <button type="submit" [disabled]="!taskForm.valid" [style.cursor]="taskForm.valid ? 'pointer' : 'not-allowed'">Add task</button>
 </form>
 <div class="showTasks" *ngIf="tasksArray && tasksArray.length > 0; then tasks else noTasks"></div>
 <ng-template #tasks>
@@ -21,6 +21,12 @@
 
         </div>
     </div>
+    <div class="tasksBtns">
+        <button type="button" class="deleteAllBtn navBtn" (click)="deleteAll()">Delete All</button>
+        <button type="button" class="showAllBtn navBtn" (click)="showAll()">Show All</button>
+        <button type="button" class="showDoneBtn navBtn" (click)="showDone()">Show Done</button>
+    </div>
+    
 </ng-template>
 <ng-template #noTasks>
     No tasks yet!

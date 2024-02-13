@@ -25,6 +25,7 @@
     flex-direction: column;
     justify-content: center;
     gap: 10px;
+    margin-bottom: 10px;
 }
 .task {
     width: 480px;
@@ -77,4 +78,17 @@
     }
 }
 
+.tasksBtns{
+    width: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .navBtn{
+        width: 135px;
+        height: 40px;
+        font-size: 17px;
+        color: #fff;
+        background-color: #763add;
+    }
+}
 

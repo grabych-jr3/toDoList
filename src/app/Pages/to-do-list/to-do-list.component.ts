@@ -11,6 +11,7 @@ import { StorageService } from '../../Shared/Services/storage.service';
 export class ToDoListComponent implements OnInit {
   taskForm!: FormGroup;
   tasksArray: any[] = [];
+  doneTasksArray: any[] = [];
   showMoreArray: boolean[] = [];
   constructor(private storageService: StorageService) {}
 
@@ -36,5 +37,15 @@ export class ToDoListComponent implements OnInit {
   }
   closeEditing(){
     this.showMoreArray.fill(false);
+  }
+  deleteAll(){
+    this.tasksArray = [];
+    this.storageService.setTasksArray(this.tasksArray);
+  }
+  showDone(){
+    this.tasksArray = this.tasksArray.filter((item: Task) => item.isComplete === true);
+  }
+  showAll(){
+    this.tasksArray = this.storageService.getTasks() || [];
   }
 }
